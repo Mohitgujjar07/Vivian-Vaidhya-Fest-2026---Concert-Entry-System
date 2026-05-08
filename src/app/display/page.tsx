@@ -132,7 +132,9 @@ export default function DisplayPage() {
                             <motion.div initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="relative w-full h-full">
                                 <div className="absolute -inset-8 bg-fuchsia-600/30 blur-[40px] rounded-full animate-pulse" />
                                 <div className="relative w-full h-full rounded-full overflow-hidden border-[6px] border-fuchsia-500 shadow-[0_0_80px_rgba(217,70,239,0.8)]">
-                                    <img src={currentStudent.image_url ?? undefined} alt="" className="w-full h-full object-cover" />
+                                    {currentStudent?.image_url && (
+                                        <img src={currentStudent.image_url} alt={currentStudent?.name ?? "Attendee"} className="w-full h-full object-cover" />
+                                    )}
                                 </div>
                             </motion.div>
                         </div>
