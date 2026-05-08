@@ -203,7 +203,7 @@ export default function NexusScannerTerminal() {
     const videoEl = document.querySelector('video') as HTMLVideoElement;
     const stream = (window as any).localStream || videoEl?.srcObject as MediaStream;
     if (stream) {
-        stream.getTracks().forEach(t => t.stop());
+        stream.getTracks().forEach((t: MediaStreamTrack) => t.stop());
     }
     navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}}).then(s => { 
         if(videoEl) videoEl.srcObject = s; 
